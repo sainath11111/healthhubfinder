@@ -1,0 +1,43 @@
+CREATE TABLE "User" (
+    user_id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    phone_number VARCHAR(15),
+    password VARCHAR(255) NOT NULL,
+    is_verified BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE admin (
+    admin_id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(50) DEFAULT 'Admin'
+);
+
+CREATE TABLE hospitals (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    address VARCHAR(255),
+    city VARCHAR(255),
+    state VARCHAR(255),
+    phone_number VARCHAR(20),
+    email VARCHAR(255),
+    specialties TEXT,
+    rating INTEGER CHECK (rating >= 1 AND rating <= 5),
+    website_link VARCHAR(255),
+    password VARCHAR(255) NOT NULL DEFAULT 'defaultpassword',
+    admin_id INTEGER,
+    CONSTRAINT fk_hospitals_admin FOREIGN KEY (admin_id) REFERENCES admin (admin_id) ON DELETE SET NULL
+);
+
+CREATE TABLE review (
+    review_id SERIAL PRIMARY KEY,
+    rating INTEGER CHECK (rating >= 1 AND rating <= 5),
+    comments TEXT,
+    user_id INTEGER,
+    hospital_id INTEGER,
+    CONSTRAINT fk_review_user FOREIGN KEY (user_id) REFERENCES "User" (user_id) ON DELETE CASCADE,
+    CONSTRAINT fk_review_hospital FOREIGN KEY (hospital_id) REFERENCES hospitals (id) ON DELETE CASCADE
+);
+

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthHubFinder - Your Health Companion</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('image/bg.jpeg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #0bff;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-style: italic;
+            color: white !important;
+            font-size: 2rem;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            color: white !important;
+            font-size: 1.2rem;
+        }
+
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #ffdd57 !important;
+        }
+
+        .hero-section {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            position: relative; /* Important for positioning the button */
+        }
+
+        .hero-section h1 {
+            font-size: 2.8rem;
+            font-weight: bold;
+        }
+
+        .hero-section p {
+            font-size: 1.4rem;
+        }
+
+        /* Position the Review button at the top-right */
+        .review-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ffdd57;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none; /* Removes the underline */
+        }
+
+        .review-button:hover {
+            background-color: #f0a500;
+        }
+
+        .info-section {
+            padding: 50px 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .info-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .info-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .footer p {
+            font-size: 1rem;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.2);
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .card-body {
+            font-size: 1.2rem;
+        }
+
+        .contact-section {
+            background-color: #f1f1f1;
+            padding: 50px 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>Welcome to HealthHubFinder</h1>
+        <p>Your trusted platform for finding hospitals and healthcare services worldwide. Verified and reliable care for your health journey.</p>
+        <!-- Review Button -->
+        <a href="sreview.php" class="review-button">Check a Review</a>
+        <a href="healthhub.php" style="color:black;">Back to page</a>
+    </div>
+
+    <!-- Information Section -->
+    <div class="container info-section">
+        <h2>About HealthHubFinder</h2>
+        <p>HealthHubFinder is a comprehensive platform designed to connect people with healthcare services worldwide. We provide an easy way to find top-rated hospitals, clinics, doctors, and health professionals. Whether you're looking for specialized treatments or emergency care, our platform ensures you have access to trusted and verified healthcare providers.</p>
+    </div>
+
+    <div class="container info-section">
+        <h2>Our Services</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        Search for Hospitals
+                    </div>
+                    <div class="card-body">
+                        Easily search for hospitals and healthcare services based on your location, specialty, or ratings. Get detailed information on the services they offer.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        Add Your Hospital
+                    </div>
+                    <div class="card-body">
+                        Are you a healthcare provider? You can list your hospital or clinic on our platform to help others find your services quickly and easily.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        Verified Reviews
+                    </div>
+                    <div class="card-body">
+                        Read reviews from verified patients to ensure you make an informed decision when choosing a healthcare provider.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="container contact-section">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need assistance, We're here to help!</p>
+        <p>Email: <strong>healthhubfinder@gmail.com</strong></p>
+        <p>Phone: <strong>+123 456 7890</strong></p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+     <marquee>
+        <p>&copy; HealthHubFinder. All Rights Reserved.</p>
+    
+     </marquee></footer>
+
+    <!-- Bootstrap JS & Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+

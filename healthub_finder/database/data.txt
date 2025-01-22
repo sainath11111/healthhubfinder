@@ -1,0 +1,79 @@
+                                          Table "public.User"
+    Column    |          Type          | Collation | Nullable |                 Default                 
+--------------+------------------------+-----------+----------+-----------------------------------------
+ user_id      | integer                |           | not null | nextval('"User_user_id_seq"'::regclass)
+ name         | character varying(255) |           | not null | 
+ email        | character varying(255) |           | not null | 
+ phone_number | character varying(15)  |           |          | 
+ password     | character varying(255) |           | not null | 
+ is_verified  | boolean                |           |          | false
+Indexes:
+    "User_pkey" PRIMARY KEY, btree (user_id)
+    "User_email_key" UNIQUE CONSTRAINT, btree (email)
+    
+    
+    
+                                            Table "public.admin"
+  Column  |          Type          | Collation | Nullable |                 Default                 
+----------+------------------------+-----------+----------+-----------------------------------------
+ admin_id | integer                |           | not null | nextval('admin_admin_id_seq'::regclass)
+ username | character varying(50)  |           | not null | 
+ email    | character varying(255) |           | not null | 
+ password | character varying(255) |           | not null | 
+ role     | character varying(50)  |           |          | 'Admin'::character varying
+Indexes:
+    "admin_pkey" PRIMARY KEY, btree (admin_id)
+    "admin_email_key" UNIQUE CONSTRAINT, btree (email)
+    "admin_username_key" UNIQUE CONSTRAINT, btree (username)
+
+
+
+
+                                         Table "public.hospitals"
+      Column       |          Type          | Collation | Nullable |                Default                
+-------------------+------------------------+-----------+----------+---------------------------------------
+ id                | integer                |           | not null | nextval('hospitals_id_seq'::regclass)
+ name              | character varying(255) |           |          | 
+ address           | character varying(255) |           |          | 
+ city              | character varying(255) |           |          | 
+ state             | character varying(255) |           |          | 
+ phone_number      | character varying(20)  |           |          | 
+ email             | character varying(255) |           |          | 
+ specialties       | text                   |           |          | 
+ rating            | integer                |           |          | 
+ website_link      | character varying(255) |           |          | 
+ password          | character varying(255) |           | not null | 'defaultpassword'::character varying
+ hospital_document | text                   |           |          | 
+Indexes:
+    "hospitals_pkey" PRIMARY KEY, btree (id)
+Check constraints:
+    "hospitals_rating_check" CHECK (rating >= 1 AND rating <= 5)
+
+
+
+
+                                 Table "public.review"
+  Column   |  Type   | Collation | Nullable |                  Default                  
+-----------+---------+-----------+----------+-------------------------------------------
+ review_id | integer |           | not null | nextval('review_review_id_seq'::regclass)
+ rating    | integer |           |          | 
+ comments  | text    |           |          | 
+Indexes:
+    "review_pkey" PRIMARY KEY, btree (review_id)
+Check constraints:
+    "review_rating_check" CHECK (rating >= 1 AND rating <= 5)
+
+
+
+
+                                             Table "public.emergencycontact"
+     Column     |          Type          | Collation | Nullable |                        Default                         
+----------------+------------------------+-----------+----------+--------------------------------------------------------
+ emergency_id   | integer                |           | not null | nextval('emergencycontact_emergency_id_seq'::regclass)
+ hospital_id    | integer                |           |          | 
+ contact_number | character varying(15)  |           | not null | 
+ service_type   | character varying(100) |           | not null | 
+Indexes:
+    "emergencycontact_pkey" PRIMARY KEY, btree (emergency_id)
+
+
